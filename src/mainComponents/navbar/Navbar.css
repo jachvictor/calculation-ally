@@ -1,0 +1,39 @@
+.nav-container {
+  display: flex;
+  width: 60%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  border: solid black 1px;
+  height: 5rem;
+  background-color: purple;
+  /* background-color: transparent; */
+}
+.logo {
+  height: 3rem;
+  width: 8rem;
+}
+.nav-left {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.history-icon {
+  display: none;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 700px) {
+  .history-icon {
+    display: block;
+  }
+  .nav-container {
+    width: 100%;
+  }
+}
