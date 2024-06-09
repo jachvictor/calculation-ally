@@ -60,6 +60,10 @@ export default function Calculator() {
         return <LiaSquareRootAltSolid />;
       case "sqr":
         return "sqr(";
+      case "1/x":
+        return "1/";
+      case "root":
+        return input, "root";
       // Add more cases for other signs/icons
       default:
         return null; // or return a default icon
@@ -150,7 +154,9 @@ export default function Calculator() {
             </span>
             {checkSign === "root" ? null : input}
             <span className="in-screen">
-              <figure className="sqr">{checkSign === "sqr" && "2"}</figure>
+              {checkSign !== "1/x" && (
+                <figure className="sqr">{checkSign === "sqr" && "2"}</figure>
+              )}
               {checkSign === "1/x" && ")"}
               {checkSign.includes("root") && secondDisplay()}
             </span>
@@ -269,7 +275,7 @@ export default function Calculator() {
           </div>
         </section>
       </div>
-      <section className="history">
+      <section className="history overflw">
         <History
           history={history}
           title={"History"}
@@ -277,10 +283,9 @@ export default function Calculator() {
         />
       </section>
       {width < 700 && (
-        <section className="history-mobile">
+        <section className="history-mobile overflow">
           <History
             history={history}
-            title={"History"}
             handleClear={clearHistory}
           />
         </section>

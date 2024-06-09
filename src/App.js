@@ -7,8 +7,6 @@ import { RoutePage } from "./route";
 function App() {
   return (
     <div>
-      {/* <Navbar /> */}
-
       <RoutePage />
     </div>
   );

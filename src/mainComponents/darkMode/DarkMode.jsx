@@ -10,7 +10,7 @@ function DarkMode() {
     document
       .querySelector(".screen-section")
       .setAttribute("data-theme", "dark");
-    // document.querySelector().setAttribute("data-theme", "dark");
+    document.querySelector("body").setAttribute("data-theme", "dark");
   };
   const setLightMode = () => {
     document.querySelector(".cal-contain").setAttribute("data-theme", "light");
@@ -18,7 +18,7 @@ function DarkMode() {
     document
       .querySelector(".screen-section")
       .setAttribute("data-theme", "light");
-    // document.querySelector().setAttribute("data-theme", "light");
+    document.querySelector("body").setAttribute("data-theme", "light");
   };
 
   const toggleMode = (e) => {
