@@ -1,8 +1,9 @@
 import React from "react";
 import "./Settings.css";
 import { DarkMode, Switch } from "../../mainComponents";
-import { PiCopyright } from "react-icons/pi";
+import { PiCopyright, PiPalette } from "react-icons/pi";
 import logo from "../../assets/logo.png";
+import { MdMemory, MdOutlineScience } from "react-icons/md";
 
 export default function Settings({
   toggle,
@@ -17,24 +18,34 @@ export default function Settings({
     <main className="set-contain">
       <section className="set-section">
         <figure className="set-list">
-          <header>App theme</header>
-          <div>select which app theme to display</div>
+          <header>
+            {" "}
+            <PiPalette /> App theme
+          </header>
+          <div>Select which app theme to display</div>
 
           <span>
             <DarkMode toggleMode={toggle} />
           </span>
         </figure>
         <figure className="set-list">
-          <header>Memory</header>
-          <div>enable memory to save calculations</div>
+          <header>
+            <MdMemory />
+            Enable Memory
+          </header>
+          <div>
+            Activate this setting to save calculations from your history
+          </div>
 
           <span>
             <Switch setOff={setOnMem} off={onMen} onClick={onClick} />
           </span>
         </figure>
         <figure className="set-list">
-          <header>Scientific</header>
-          <div>enable Scientific features on calculator</div>
+          <header>
+            <MdOutlineScience /> Scientific Mode
+          </header>
+          <div>Enable Scientific functions in the calculator</div>
 
           <span>
             <Switch setOff={setonSci} off={onSci} onClick={onClick2} />

@@ -505,7 +505,7 @@ export default function Calculator({
             {onSci && (
               <Button
                 onClick={toggleSci}
-                className={"calc-btn"}
+                className={"calc-btn on-sci"}
                 text={<PiArrowArcLeft />}
               />
             )}

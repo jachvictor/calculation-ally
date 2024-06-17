@@ -226,6 +226,9 @@
   justify-content: center;
   /* background-color: aqua; */
 }
+.on-sci{
+  background-color: orange;
+}
 .history {
   width: 40%;
   overflow: auto;
@@ -290,7 +293,7 @@
 
 @media screen and (max-width: 700px) {
   .history-header {
-    top: 0;
+    top: 0rem;
     position: absolute;
     width: 100%;
     border-top-left-radius: 1rem;
@@ -301,9 +304,9 @@
     /* display: none; */
     padding-top: 5rem;
     flex-direction: column;
-    overflow: auto;
+    /* overflow: auto; */
     height: 60%;
-    position: absolute;
+    position:absolute;
     bottom: 0;
     z-index: +12;
     border-radius: 2rem;
@@ -331,10 +334,10 @@
   .btn-section-2 button {
     font-size: medium;
   }
-  .sci-btn{
+  .sci-btn {
     width: 85%;
   }
-  .close-sci{
+  .close-sci {
     width: 15%;
   }
 }

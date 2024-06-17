@@ -46,6 +46,7 @@
 }
 .about-section p {
   display: flex;
+  gap: 0.5rem;
   align-items: center;
   padding: 0.5rem;
 }
@@ -54,6 +55,9 @@
   flex-direction: column;
 }
 .set-list header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   font-size: x-large;
   padding: 1rem 0;
 }
