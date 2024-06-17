@@ -53,7 +53,14 @@ function Navbar({ showMenu, setShowMenu, showHistory, setShowHistory }) {
         <img className="logo" src={logo} alt="" />
 
         <div className="nav-left">
-          {/* <DarkMode /> */}
+          {pathName === "/" && (
+            <GrHistory
+              size={25}
+              onClick={() => setShowHistory(!showHistory)}
+              color="white"
+              className="history-icon"
+            />
+          )}
 
           {!showMenu ? (
             <GrMenu
@@ -68,14 +75,6 @@ function Navbar({ showMenu, setShowMenu, showHistory, setShowHistory }) {
               className="toggle-menu"
               onClick={() => setShowMenu(!showMenu)}
               color="white"
-            />
-          )}
-          {pathName === "/" && (
-            <GrHistory
-              size={25}
-              onClick={() => setShowHistory(!showHistory)}
-              color="white"
-              className="history-icon"
             />
           )}
         </div>
