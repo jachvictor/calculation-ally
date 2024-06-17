@@ -58,7 +58,7 @@ export default function Settings({
           <div className="brand">
             <p>Calculation Ally</p>
             <p>
-              <PiCopyright /> 2024. All rights reserved
+              <PiCopyright /> 2024. All rights reserved.
             </p>
           </div>
         </div>
