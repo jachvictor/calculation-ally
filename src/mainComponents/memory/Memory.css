@@ -58,6 +58,7 @@
   font-size: large;
   justify-content: center;
   align-items: center;
+  color: var(--btnColor);
 }
 
 .memory-contain::-webkit-scrollbar {
