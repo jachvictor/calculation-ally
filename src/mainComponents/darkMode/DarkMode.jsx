@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { ReactComponent as Sun } from "../../assets/Sun.svg";
 import { ReactComponent as Moon } from "../../assets/Moon.svg";
 import "./DarkMode.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function DarkMode() {
   const setDarKMode = () => {
@@ -16,31 +18,45 @@ function DarkMode() {
 
     if (dark) {
       setDarKMode();
+    
     } else {
       setLightMode();
+      
     }
   };
+
   const initialState = JSON.parse(localStorage.getItem("mode")) || false;
   const [dark, setDark] = useState(initialState);
   useEffect(() => {
     localStorage.setItem("mode", JSON.stringify(dark));
   }, [dark]);
+
+  useEffect(() => {
+    if (dark) {
+      toast.success("App on dark mode");
+    } else  {
+      toast.success("App on light mode");
+    }
+  }, [dark]);
   return (
-    <div
-      onClick={() => toggleMode()}
-      className={dark ? "dark-mode" : "light-mode"}
-    >
-      {/* <input
+    <>
+      <div
+        onClick={() => toggleMode()}
+        className={dark ? "dark-mode" : "light-mode"}
+      >
+        {/* <input
         onChange={toggleMode}
         className="dark_mode_input"
         type="checkbox"
         id="darkmode-toggle"
       /> */}
-      <button className={dark ? "btn-light" : "btn-dark"}></button>
+        <button className={dark ? "btn-light" : "btn-dark"}></button>
 
-      <Sun className="sun" />
-      <Moon className="moon" />
-    </div>
+        <Sun className="sun" />
+        <Moon className="moon" />
+      </div>
+      {/* <ToastContainer /> */}
+    </>
   );
 }
 

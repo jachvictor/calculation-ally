@@ -3,19 +3,10 @@ import { Route, Routes } from "react-router-dom";
 import { Calculator, AdCalculator, Settings, ErrorPage } from "../pages";
 import { Navbar, Menu } from "../mainComponents";
 import { UserProvider } from "../data/UserContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function RoutePage() {
-  //   useEffect(() => {
-  //     fetch('https://api-server-smoky-two.vercel.app/memory')
-  //        .then((response) => response.json())
-  //        .then((data) => {
-  //           console.log("data",data);
-  //           setPosts(data);
-  //        })
-  //        .catch((err) => {
-  //           console.log("err",err.message);
-  //        });
-  //  }, []);
   const [showMenu, setShowMenu] = useState(false);
   const [showHistory, setShowHistory] = useState(false);
   const initialState = JSON.parse(localStorage.getItem("onmem")) || false;
@@ -31,10 +22,20 @@ export default function RoutePage() {
 
   const toggleMem = () => {
     setOnMem(!onMem);
+    if (!onMem) {
+      toast.success("Memory turned on");
+    } else {
+      toast("Memory feature turned off");
+    }
   };
   const toggleSci = () => {
     // setOnMem(!onMem);
     setonSci(!onSci);
+    if (!onSci) {
+      toast.success("Scientific feature turned on");
+    } else {
+      toast("Scientific feature turned off");
+    }
   };
 
   return (
@@ -81,6 +82,7 @@ export default function RoutePage() {
         />
         <Route exact path="*" element={<ErrorPage />} />
       </Routes>
+      <ToastContainer />
     </div>
     // </UserProvider>
   );
