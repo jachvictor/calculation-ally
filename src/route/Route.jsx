@@ -22,20 +22,10 @@ export default function RoutePage() {
 
   const toggleMem = () => {
     setOnMem(!onMem);
-    if (!onMem) {
-      toast.success("Memory turned on");
-    } else {
-      toast("Memory feature turned off");
-    }
   };
   const toggleSci = () => {
     // setOnMem(!onMem);
     setonSci(!onSci);
-    if (!onSci) {
-      toast.success("Scientific feature turned on");
-    } else {
-      toast("Scientific feature turned off");
-    }
   };
 
   return (
