@@ -4,35 +4,138 @@
   height: 100vh;
   width: 100%;
   position: relative;
-  /* padding-top: 5rem; */
-  /* height: initial; */
-  /* background-color: #121212; */
-
   background-color: var(--backgroundColor);
-  /* margin-top: 5rem; */
+}
+.menu-section {
+  position: fixed;
+  /* top: 5rem; */
+  padding-top: 5rem;
+  z-index: +13;
+  width: 60%;
+  height: 100%;
+  width: 100%;
+  /* display: none; */
+  background-color: rgba(0, 0, 0, 0.3);
+  animation-duration: 0.4s;
+  animation-name: animMenu;
+}
+.sci-btn-contain {
+  display: none;
+  flex-direction: row;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: solid 3px black;
+  width: 60%;
+  height: 60%;
+  bottom: 0;
+  z-index: +1;
+  animation-duration: 0.4s;
+  animation-name: animSci;
+}
+.sci-btn {
+  display: block;
+  flex-wrap: wrap;
+  background-color: orange;
+  padding: 1rem;
+  width: 90%;
+  height: 100%;
+}
+.sci-toggle {
+  display: flex;
+  width: 100%;
+  height: fit-content;
+  padding: 1rem;
+}
+.sci-toggle button {
+  padding: 1rem;
+  font-size: x-large;
+  border: none;
+  color: gray;
+  margin-left: 1rem;
+  border-radius: 0.5rem;
+}
+.sci-toggle button:hover {
+  background-color: transparent;
+  border: solid 1px silver;
+}
+.btn-section-2 {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  padding-left: 1.5rem;
+  margin: auto;
+}
+.btn-section-2 button {
+  flex-wrap: wrap;
+  height: 3.5rem;
+  width: 19%;
+  font-size: large;
+  border-radius: 0.5rem;
+  background-color: transparent;
+  outline: none;
+  padding: 2px;
+  font-size: x-large;
+  border: solid 1px whitesmoke;
+  color: black;
+  margin: 5px;
+}
+.close-sci {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+  width: 10%;
+  height: 100%;
+}
+.close-sci button {
+  width: 80%;
+  height: fit-content;
+  padding: 0.5rem;
+  background-color: transparent;
+  border: solid 2px silver;
+  border-radius: 0.5rem;
+  color: white;
+  font-size: large;
+  cursor: pointer;
+}
+.close-sci button:hover {
+  border: solid 2px white;
+  color: silver;
+}
+@keyframes animSci {
+  from {
+    right: -500px;
+  }
+  to {
+    right: 40%;
+  }
 }
 
+@keyframes animMenu {
+  from {
+    left: -500px;
+  }
+  to {
+    left: 0%;
+  }
+}
 .calc {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
   width: 60%;
-  z-index: +5;
+  z-index: +11;
   flex-direction: column;
   border-right: solid silver 2px;
 }
 .screen-section {
   width: 95%;
   height: 40%;
-  /* margin: 1rem; */
   padding: 1rem;
   padding-top: 5.5rem;
   font-size: large;
   font-weight: bold;
-  /* background-color: white; */
   color: var(--screenColor);
-  /* border: solid silver 2px; */
 }
 .screen {
   display: flex;
@@ -42,21 +145,16 @@
   height: 50%;
   overflow-x: auto;
   padding-left: 1rem;
-  /* color: var(--screenColor); */
-
   border-top: solid 1px silver;
 }
 .in-screen {
   color: gray;
-
 }
 .sqr {
   font-size: small;
   display: flex;
   align-items: start;
-  /* margin-top: -8px; */
   justify-content: start;
-  /* background-color: brown; */
   padding-bottom: 5px;
   padding-left: 2px;
 }
@@ -68,7 +166,6 @@
   height: 50%;
   padding-right: 1rem;
   border-bottom: solid 1px silver;
-  /* color: var(--screenColor); */
   text-align: right;
   overflow-x: auto;
 }
@@ -79,26 +176,17 @@
   justify-items: center;
   justify-content: center;
   margin: auto;
-  /* background-color: blue; */
   flex-wrap: wrap;
   width: 100%;
   height: 60%;
   gap: 0.2rem;
-  /* padding-left: 1rem; */
-
-  
 }
 .btn-section div {
   display: flex;
-  /* align-content: space-evenly; */
-  /* justify-content: left; */
   width: 100%;
-  /* align-items: center; */
   flex-wrap: wrap;
-  /* padding: 0 1px; */
   padding-left: 1.5rem;
   margin: auto;
-  /* background-color: black; */
 }
 .calc-btn {
   flex-wrap: wrap;
@@ -113,34 +201,71 @@
 }
 
 .equal {
-  background-color: green;
+  background-color: var(--equal);
   color: white;
 }
 .clear {
-  background-color: red;
+  background-color: var(--clear);
   color: white;
 }
 .del {
-  background-color: pink;
+  background-color: var(--del);
   color: white;
 }
 .ans {
-  background-color: blue;
+  background-color:var(--ans);
   color: white;
+}
+.sqr-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: aqua; */
 }
 .history {
   width: 40%;
   overflow: auto;
+  /* z-index: +13; */
+  margin-top: 5rem;
   background-color: var(--backgroundColor);
+  animation-duration: 0.5s;
+  animation-name: animHis;
 }
-
-
-.history-mobile{
-  display: none;
-  background-color: var(--backgroundColor);
+.history-header {
+  position: fixed;
+  top: 4rem;
+  height: 5rem;
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  /* z-index: +13; */
+  padding-left: 2rem;
+  align-items: center;
+  font-size: large;
+  color: silver;
+  background-color: purple;
+  animation-duration: 0.5s;
+  animation-name: animHis;
 }
-
-
+.history-header div {
+  display: flex;
+}
+.history-header p {
+  cursor: pointer;
+  padding: 1rem;
+}
+.header-select {
+  border-bottom: solid 2px white;
+}
+@keyframes animHis {
+  from {
+    bottom: -500px;
+  }
+  to {
+    bottom: 0%;
+  }
+}
 
 .history::-webkit-scrollbar {
   outline: none;
@@ -159,33 +284,44 @@
   border-radius: 10px;
 }
 
-
 @media screen and (max-width: 700px) {
-  .history {
-    display: none;
+  .history-header {
+    top: 0;
+    position: absolute;
+    width: 100%;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    padding-right: 3rem;
   }
-  .history-mobile {
-    display: none;
+  .history {
+    /* display: none; */
+    padding-top: 5rem;
+    flex-direction: column;
     overflow: auto;
-    height: 50%;
+    height: 60%;
     position: absolute;
     bottom: 0;
-    /* left: 0; */
-    z-index: +6;
+    z-index: +12;
     border-radius: 2rem;
     border-top: solid 1px silver;
     width: 100%;
   }
-  
+  .sci-btn-contain {
+    width: 100%;
+    bottom: 0;
+  }
   .calc {
     width: 100%;
   }
-  .btn-section div{
+  .btn-section div {
     padding-left: 1rem;
+  }
+  .menu-section {
+    width: 100%;
   }
 }
 @media screen and (max-width: 500px) {
-  .btn-section div{
+  .btn-section div {
     padding-left: 0.5rem;
   }
 }

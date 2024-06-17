@@ -1,11 +1,11 @@
 import React from "react";
-import "./Button";
+// import "./Button";
 
 function Button({ onClick, className, type,text }) {
   return (
-    <main>
+    <>
       <button onClick={onClick} className={className} type={type}>{text}</button>
-    </main>
+    </>
   );
 }
 

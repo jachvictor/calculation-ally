@@ -1,13 +1,14 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
-import { Calculator, AdCalculator } from "./pages";
-import { Navbar } from "./mainComponents";
+// import { Route, Routes } from "react-router-dom";
 import { RoutePage } from "./route";
+import { UserProvider } from "./data/UserContext";
 
 function App() {
   return (
     <div>
-      <RoutePage />
+        {/* <UserProvider> */}
+        <RoutePage />
+      {/* </UserProvider> */}
     </div>
   );
 }

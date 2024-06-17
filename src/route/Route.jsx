@@ -1,60 +1,87 @@
-// import React from 'react'
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-import { Calculator, AdCalculator } from "../pages";
-// import { Calculator } from "../pages";
-import { Navbar } from "../mainComponents";
+import { Calculator, AdCalculator, Settings, ErrorPage } from "../pages";
+import { Navbar, Menu } from "../mainComponents";
+import { UserProvider } from "../data/UserContext";
 
 export default function RoutePage() {
-  const [theme, setTheme] = useState(true);
-  const handleToggleMode = () => {
-    const themeSwitch = document.querySelector(".theme-switch");
-    const btnSwitch = document.querySelector(".switch-btn");
+  //   useEffect(() => {
+  //     fetch('https://api-server-smoky-two.vercel.app/memory')
+  //        .then((response) => response.json())
+  //        .then((data) => {
+  //           console.log("data",data);
+  //           setPosts(data);
+  //        })
+  //        .catch((err) => {
+  //           console.log("err",err.message);
+  //        });
+  //  }, []);
+  const [showMenu, setShowMenu] = useState(false);
+  const [showHistory, setShowHistory] = useState(false);
+  const initialState = JSON.parse(localStorage.getItem("onmem")) || false;
+  const initialState2 = JSON.parse(localStorage.getItem("onsci")) || false;
+  const [onMem, setOnMem] = useState(initialState);
+  const [onSci, setonSci] = useState(initialState2);
+  useEffect(() => {
+    localStorage.setItem("onmem", JSON.stringify(onMem));
+  }, [onMem]);
+  useEffect(() => {
+    localStorage.setItem("onsci", JSON.stringify(onSci));
+  }, [onSci]);
 
-    const background = document.querySelector(".calc-contain");
-
-    const calcBtn = document.querySelector(".calc-btn");
-    const screen = document.querySelector(".screen-section");
-
-    setTheme(!theme);
-    if (theme) {
-      // themeSwitch.classList.remove("theme-switch-dark");
-      themeSwitch.setAttribute("class","theme-switch");
-      // btnSwitch.classList.remove("switch-btn-dark");
-      btnSwitch.setAttribute("class","switch-btn");
-
-      // background.classList.remove("calc-contain-dark");
-      background.setAttribute("class","calc-contain");
-
-      // calcBtn.classList.remove("calc-btn-dark");
-
-      calcBtn.setAttribute("class","calc-btn");
-    } else if(!theme) {
-      try {
-        themeSwitch.setAttribute("class","theme-switch-dark");
-      // themeSwitch.classList.remove("theme-switch");
-      btnSwitch.setAttribute("class","switch-btn-dark");
-      // btnSwitch.classList.remove("switch-btn");
-
-      background.setAttribute("class","calc-contain-dark");
-      // background.classList.remove("calc-contain");
-
-      calcBtn.setAttribute("class","calc-btn-dark");
-      // calcBtn.classList.remove("calc-btn");
-      } catch (error) {
-        console.log("error massege:",error)
-      }
-      
-      
-    }
+  const toggleMem = () => {
+    setOnMem(!onMem);
   };
+  const toggleSci = () => {
+    // setOnMem(!onMem);
+    setonSci(!onSci);
+  };
+
   return (
+    // <UserProvider>
     <div>
-      <Navbar ToggleMode={handleToggleMode} />
+      <Navbar
+        setShowHistory={setShowHistory}
+        showHistory={showHistory}
+        showMenu={showMenu}
+        setShowMenu={setShowMenu}
+      />
+      {showMenu && (
+        <div className="menu-section">
+          <Menu setShowMenu={setShowMenu} />
+        </div>
+      )}
       <Routes>
-        <Route path="/" element={<Calculator />} />
+        <Route
+          path="/"
+          element={
+            <Calculator
+              showMenu={showMenu}
+              setShowHistory={setShowHistory}
+              showHistory={showHistory}
+              onMem={onMem}
+              onSci={onSci}
+            />
+          }
+        />
         <Route exact path="/adcalculator" element={<AdCalculator />} />
+        <Route
+          exact
+          path="/settings"
+          element={
+            <Settings
+              omMen={onMem}
+              onClick={toggleMem}
+              setOnMem={setOnMem}
+              setonSci={setOnMem}
+              onClick2={toggleSci}
+              onSci={onSci}
+            />
+          }
+        />
+        <Route exact path="*" element={<ErrorPage />} />
       </Routes>
     </div>
+    // </UserProvider>
   );
 }

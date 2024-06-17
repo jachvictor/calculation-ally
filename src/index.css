@@ -9,6 +9,10 @@
   --btnColor: black;
   --btnBack: #f1f1f1;
   --screenColor: black;
+  --del: lightpink;
+  --clear: red;
+  --equal: green;
+  --ans: blue;
 
   /* #1a1125 #261c32 */
 }
@@ -17,6 +21,10 @@
   --btnColor: white;
   --btnBack: #261c32;
   --screenColor: aqua;
+  --del: pink;
+  --clear: darkred;
+  --equal: darkgreen;
+  --ans: darkblue;
 }
 
 body {

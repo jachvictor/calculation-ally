@@ -1,28 +1,35 @@
 .history-contain {
   width: 100%;
-  display: flex;
+  display: "flex";
   flex-direction: column;
-  position: relative;
+  /* position: relative; */
   overflow: auto;
 }
-.history-contain header {
-  position: fixed;
-  top: 0;
-  height: 5rem;
-  width: 100%;
-  display: flex;
-  padding-left: 2rem;
-  align-items: center;
-  font-size: large;
-  color: white;
-  background-color: purple;
-}
+
 .history-contain ul {
-  padding: 0 2rem;
+  /* display: flex; */
+  /* background-color: aqua; */
+  
   /* overflow: auto; */
   margin-top: 5rem;
   color: var(--btnColor);
 }
+.history-data {
+  position: relative;
+  flex-wrap: wrap;
+  padding: 0 2rem;
+  gap: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: auto;
+}
+.save-history{
+  cursor: pointer;
+  /* position: absolute; */
+  /* right: 0; */
+}
+
 .history-contain li {
   list-style: none;
   font-size: large;
@@ -31,24 +38,22 @@
 .history-contain span {
   font-size: xx-large;
 }
-.clear-history{
-    display: flex;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    justify-content: flex-end;
-    /* align-items: flex-end; */
-    background-color: var(--backgroundColor);
-    padding: 5px 1rem;
-    width: 100%;
+.clear-history {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  justify-content: flex-end;
+  /* align-items: flex-end; */
+  background-color: var(--backgroundColor);
+  padding: 5px 1rem;
+  width: 40%;
 }
-.trash-icon{
-/* float: right; */
-    color: var(--btnColor);
-    z-index: +4;
+.trash-icon {
+  /* float: right; */
+  color: var(--btnColor);
+  z-index: +4;
 }
-
-
 
 .history-contain::-webkit-scrollbar {
   outline: none;
@@ -65,10 +70,14 @@
   box-shadow: inset 0 0 5px gray;
   border-radius: 10px;
 }
-@media screen and (max-width:700px) {
-    .history-contain head{
-        display: none;
-        position: relative;
-        visibility: hidden;
-    }
+/* @media screen and (max-width: 700px) {
+  
+} */
+@media screen and (max-width: 700px) {
+  .history-contain ul {
+    margin-top: 0rem;
+  }
+  .clear-history {
+    width: 100%;
+  }
 }

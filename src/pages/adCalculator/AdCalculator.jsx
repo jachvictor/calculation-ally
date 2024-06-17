@@ -1,6 +1,6 @@
 import React from "react";
-// import "./AdCalculator";
-import "../adCalculator/AdCalculator.css"
+import "./AdCalculator.css";
+// import "../adCalculator/AdCalculator.css";
 import {
   PiStudentBold,
   PiStudentFill,
@@ -9,10 +9,7 @@ import {
 } from "react-icons/pi";
 
 export default function AdCalculator() {
-  return <div className="contain">
-    
-
-  </div>;
+  return <div className="contain">COMING SOON!!!</div>;
 }
 /*
 <PiMathOperationsBold className="symbol"/> <figure className="aside">

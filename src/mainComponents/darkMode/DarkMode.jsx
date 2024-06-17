@@ -1,45 +1,45 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ReactComponent as Sun } from "../../assets/Sun.svg";
 import { ReactComponent as Moon } from "../../assets/Moon.svg";
 import "./DarkMode.css";
 
 function DarkMode() {
   const setDarKMode = () => {
-    document.querySelector(".cal-contain").setAttribute("data-theme", "dark");
-    document.querySelector(".calc-btn").setAttribute("data-theme", "dark");
-    document
-      .querySelector(".screen-section")
-      .setAttribute("data-theme", "dark");
     document.querySelector("body").setAttribute("data-theme", "dark");
   };
   const setLightMode = () => {
-    document.querySelector(".cal-contain").setAttribute("data-theme", "light");
-    document.querySelector(".calc-btn").setAttribute("data-theme", "light");
-    document
-      .querySelector(".screen-section")
-      .setAttribute("data-theme", "light");
     document.querySelector("body").setAttribute("data-theme", "light");
   };
 
   const toggleMode = (e) => {
-    if (e.target.checked) {
+    setDark(!dark);
+
+    if (dark) {
       setDarKMode();
     } else {
       setLightMode();
     }
   };
+  const initialState = JSON.parse(localStorage.getItem("mode")) || false;
+  const [dark, setDark] = useState(initialState);
+  useEffect(() => {
+    localStorage.setItem("mode", JSON.stringify(dark));
+  }, [dark]);
   return (
-    <div className="dark_mode">
-      <input
+    <div
+      onClick={() => toggleMode()}
+      className={dark ? "dark-mode" : "light-mode"}
+    >
+      {/* <input
         onChange={toggleMode}
         className="dark_mode_input"
         type="checkbox"
         id="darkmode-toggle"
-      />
-      <label className="dark_mode_label" for="darkmode-toggle">
-        <Sun />
-        <Moon />
-      </label>
+      /> */}
+      <button className={dark ? "btn-light" : "btn-dark"}></button>
+
+      <Sun className="sun" />
+      <Moon className="moon" />
     </div>
   );
 }
