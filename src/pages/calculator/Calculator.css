@@ -213,7 +213,7 @@
   color: white;
 }
 .ans {
-  background-color:var(--ans);
+  background-color: var(--ans);
   color: white;
 }
 .sqr-btn {
@@ -323,5 +323,8 @@
 @media screen and (max-width: 500px) {
   .btn-section div {
     padding-left: 0.5rem;
+  }
+  .btn-section-2 button {
+    font-size: medium;
   }
 }

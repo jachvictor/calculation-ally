@@ -553,13 +553,19 @@ export default function Calculator({
                 </p>
               )}
             </div>
-            {width < 700 && <GrClose onClick={() => setShowHistory(false)} />}
+            {width < 700 && (
+              <GrClose
+                style={{ cursor: "pointer" }}
+                onClick={() => setShowHistory(false)}
+              />
+            )}
           </header>
           {switchSide === 1 && (
             <History
               history={history}
               title={"History"}
               onClick={AddMemory}
+              onMem={onMem}
               handleClear={clearHistory}
             />
           )}
